@@ -5,23 +5,25 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-const webpack = require('webpack')
+const webpack = require("webpack");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require("path");
+
 const htmlPlugin = new HtmlWebPackPlugin({
   template: "./src/index.html",
   filename: "./index.html",
 });
 module.exports = {
+  mode: "development",
   entry: [
+    "react-hot-loader/patch",
     "webpack-hot-middleware/client",
-    'react-hot-loader/patch',
     "./src/index.js",
   ],
   output: {
     path: path.join(__dirname, "build"),
     filename: "[name].js",
-    publicPath: '/',
+    publicPath: "/",
   },
   plugins: [htmlPlugin, new webpack.HotModuleReplacementPlugin()],
   module: {
@@ -35,7 +37,16 @@ module.exports = {
       },
       {
         test: /\.s?css$/,
-        use: ["style-loader", "css-loader", "sass-loader"],
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+          "sass-loader",
+        ],
       },
       {
         test: /\.(png|svg|jpg|gif)$/,

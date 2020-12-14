@@ -7,7 +7,8 @@
 
 import React from "react";
 import { hot } from "react-hot-loader";
+import styles from "./styles.scss";
 
-const App = () => <div>Welcome to React!</div>;
+const App = () => <div className={styles.text}>Welcome to React!</div>;
 
 export default hot(module)(App);
