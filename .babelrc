@@ -5,9 +5,7 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
- {
-  "presets": [
-    "@babel/preset-env", "@babel/react"
-  ],
-  "plugins": ["react-hot-loader/babel"],
+{
+    "presets": ["@babel/preset-env", "@babel/react"],
+    "plugins": ["react-hot-loader/babel"]
 }

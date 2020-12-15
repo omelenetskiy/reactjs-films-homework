@@ -5,54 +5,9 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-const webpack = require("webpack");
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-const path = require("path");
+const developmentConfig = require('./config/webpack/webpack.dev')
+const productionConfig = require('./config/webpack/webpack.prod')
 
-const htmlPlugin = new HtmlWebPackPlugin({
-  template: "./src/index.html",
-  filename: "./index.html",
-});
-module.exports = {
-  mode: "development",
-  entry: [
-    "react-hot-loader/patch",
-    "webpack-hot-middleware/client",
-    "./src/index.js",
-  ],
-  output: {
-    path: path.join(__dirname, "build"),
-    filename: "[name].js",
-    publicPath: "/",
-  },
-  plugins: [htmlPlugin, new webpack.HotModuleReplacementPlugin()],
-  module: {
-    rules: [
-      {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-        },
-      },
-      {
-        test: /\.s?css$/,
-        use: [
-          "style-loader",
-          {
-            loader: "css-loader",
-            options: {
-              modules: true,
-            },
-          },
-          "sass-loader",
-        ],
-      },
-      {
-        test: /\.(png|svg|jpg|gif)$/,
-        loader: "file-loader",
-        options: { name: "/assets/images/[name].[ext]" },
-      },
-    ],
-  },
-};
+const isDevelopment = process.env.NODE_ENV === 'development'
+
+module.exports = () => (isDevelopment ? developmentConfig : productionConfig)

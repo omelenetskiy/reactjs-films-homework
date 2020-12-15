@@ -5,10 +5,10 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-import React from "react";
-import { hot } from "react-hot-loader";
-import styles from "./styles.scss";
+import React from 'react'
+import { hot } from 'react-hot-loader'
+import styles from './App.scss'
 
-const App = () => <div className={styles.text}>Welcome to React!</div>;
+const App = () => <div className={styles.text}>Welcome to React!</div>
 
-export default hot(module)(App);
+export default hot(module)(App)
