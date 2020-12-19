@@ -5,7 +5,6 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 const merge = require('webpack-merge')
-
 const webpack = require('webpack')
 const base = require('./webpack.base.js')
 
