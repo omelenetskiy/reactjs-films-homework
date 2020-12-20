@@ -1,0 +1,32 @@
+.search {
+  position: relative;
+
+  &__input {
+    width: 200px;
+    height: 30px;
+    padding: 0 36px 0 10px;
+    background-color: inherit;
+    border: 2px solid #fff;
+    border-radius: 5px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    outline: none;
+    transition: width 0.2s linear;
+
+    &:focus {
+      width: 250px;
+    }
+
+    &::placeholder {
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: 10px;
+    top: 9px;
+    color: #fff;
+  }
+}
