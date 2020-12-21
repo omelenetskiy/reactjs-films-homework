@@ -12,16 +12,18 @@ import Button from '../common/Button'
 import styles from './MovieHead.scss'
 import responce from './res.json'
 
-const MovieDetails = () => {
+const MovieHead = () => {
   const res = responce
   const [isInfo, setInfo] = useState(false)
-
   const onViewInfo = () => {
     setInfo((state) => !state)
   }
 
   return (
-    <div className={styles.container}>
+    <div
+      className={styles.container}
+      style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original${res.poster_path}')` }}
+    >
       <div className={styles.header}>
         <span className={styles.header__title}>FILMS</span>
         <Search />
@@ -40,4 +42,4 @@ const MovieDetails = () => {
   )
 }
 
-export default MovieDetails
+export default MovieHead

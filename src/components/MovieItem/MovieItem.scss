@@ -24,7 +24,7 @@
 .info {
   flex: 1;
 
-  &__about{
+  &__about {
     padding: 20px;
     display: flex;
     justify-content: space-between;
@@ -40,19 +40,15 @@
 
     &_vote {
       font-weight: bold;
-      color:  rgb(24, 183, 236);
+      color: rgb(24, 183, 236);
       padding: 1px 7px;
       border: 2px solid rgb(24, 183, 236);
       border-radius: 5px;
     }
   }
 
-  &__genres{
+  &__genres {
     padding-left: 20px;
-    color:  rgb(24, 183, 236);
-
-    &_name {
-      margin-right: 10px;
-    }
+    color: rgb(24, 183, 236);
   }
 }

@@ -12,6 +12,7 @@ import getGenres from '../../helpers/getGenres'
 import styles from './MovieItem.scss'
 
 const MovieItem = ({ film }) => {
+  console.log(getGenres([35, 18, 10749]))
   return (
     <div className={styles.container}>
       <div
@@ -24,16 +25,7 @@ const MovieItem = ({ film }) => {
           <Raiting styles={styles.info__about_vote} res={film} />
         </div>
         <div className={styles.info__genres}>
-          {film.genre_ids.map((id) =>
-            getGenres(id).map((name, i) => {
-              const key = i
-              return (
-                <span className={styles.info__genres_name} key={key}>
-                  {name}
-                </span>
-              )
-            }),
-          )}
+          <span>{getGenres(film.genre_ids)}</span>
         </div>
       </div>
     </div>

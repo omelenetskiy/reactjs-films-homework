@@ -7,9 +7,15 @@
 
 import responce from './genres.json'
 
-const getGenres = (id) => {
-  const genres = responce.genres.filter((genre) => genre.id === id)
-  return genres.map((genre) => genre.name)
+const getGenres = (ids) => {
+  return responce.genres
+    .filter((genre) => {
+      for (let id of ids) {
+        if (genre.id === id) return genre
+      }
+    })
+    .map((genre) => genre.name)
+    .join(', ')
 }
 
 export default getGenres
