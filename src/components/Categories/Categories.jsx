@@ -5,4 +5,21 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export { default } from './MovieHead.jsx'
+import React, { useState } from 'react'
+import Navbar from '../Navbar'
+import MovieList from '../MovieList'
+import responce from './responce.json'
+import styles from './Categories.scss'
+
+const Categories = () => {
+  const res = responce
+  console.log(res)
+  return (
+    <div className={styles.categories}>
+      <Navbar />
+      <MovieList res={res} />
+    </div>
+  )
+}
+
+export default Categories

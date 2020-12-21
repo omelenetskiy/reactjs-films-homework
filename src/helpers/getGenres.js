@@ -5,4 +5,11 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export { default } from './MovieHead.jsx'
+import responce from './genres.json'
+
+const getGenres = (id) => {
+  const genres = responce.genres.filter((genre) => genre.id === id)
+  return genres.map((genre) => genre.name)
+}
+
+export default getGenres

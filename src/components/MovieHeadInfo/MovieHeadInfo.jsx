@@ -1,23 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons'
-import { faStar as regStar } from '@fortawesome/free-regular-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import Stars from '../common/Stars'
+import Raiting from '../common/Raiting'
 import styles from './MovieHeadInfo.scss'
-
-const getStars = (vote) => {
-  const averageVote = Math.round(vote / 2)
-  return Array(5)
-    .fill()
-    .map((star, index) => {
-      const key = index
-      return averageVote <= index ? (
-        <FontAwesomeIcon className={styles.description__raiting_star} icon={regStar} key={key} />
-      ) : (
-        <FontAwesomeIcon className={styles.description__raiting_star} icon={solidStar} key={key} />
-      )
-    })
-}
 
 const timeFormat = (time) => {
   const hour = Math.floor(time / 60)
@@ -41,8 +26,8 @@ const MovieHeadInfo = ({ res }) => {
         <span className={styles.description__genres_name}>{timeFormat(res.runtime)}</span>
       </div>
       <div className={styles.description__raiting}>
-        <div>{getStars(res.vote_average)}</div>
-        <div className={styles.description__raiting_vote}>{res.vote_average}</div>
+        <Stars styles={styles.description__raiting_star} res={res} />
+        <Raiting styles={styles.description__raiting_vote} res={res} />
       </div>
     </div>
   )

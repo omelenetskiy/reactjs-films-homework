@@ -1,17 +1,23 @@
+/*
+ * Copyright © 2020 EPAM Systems, Inc. All Rights Reserved. All information contained herein is, and remains the
+ * property of EPAM Systems, Inc. and/or its suppliers and is protected by international intellectual
+ * property law. Dissemination of this information or reproduction of this material is strictly forbidden,
+ * unless prior written permission is obtained from EPAM Systems, Inc
+ */
+
 import React, { useState } from 'react'
-import Search from '../Search'
+import Search from '../common/Search'
 import MovieHeadInfo from '../MovieHeadInfo'
-import Button from '../Button'
+import Button from '../common/Button'
 import styles from './MovieHead.scss'
 import responce from './res.json'
 
 const MovieDetails = () => {
   const res = responce
-  const [isInfo, setInfo] = useState(true)
+  const [isInfo, setInfo] = useState(false)
 
   const onViewInfo = () => {
-    setInfo(false)
-    console.log(isInfo)
+    setInfo((state) => !state)
   }
 
   return (
@@ -25,7 +31,7 @@ const MovieDetails = () => {
         <div className={styles.footer__controls}>
           {isInfo ? <p>{res.overview}</p> : ''}
           <Button styles={styles.watch_button}>Watch Now</Button>
-          <Button styles={styles.info_button} onViewInfo={onViewInfo}>
+          <Button styles={styles.info_button} onClick={onViewInfo}>
             View Info
           </Button>
         </div>
