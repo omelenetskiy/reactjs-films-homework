@@ -7,18 +7,21 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { faStar as solidStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar as solidStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons'
 import { faStar as regStar } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const Stars = ({ res, styles }) => {
   const getStars = (vote) => {
+    const halfVote = Math.round(vote) / 2
     const averageVote = Math.round(vote / 2)
     return Array(5)
       .fill()
       .map((star, index) => {
         const key = index
-        return averageVote <= index ? (
+        return halfVote == index + 0.5 ? (
+          <FontAwesomeIcon className={styles.description__raiting_star} icon={faStarHalfAlt} key={key} />
+        ) : averageVote < index + 1 ? (
           <FontAwesomeIcon className={styles.description__raiting_star} icon={regStar} key={key} />
         ) : (
           <FontAwesomeIcon className={styles.description__raiting_star} icon={solidStar} key={key} />

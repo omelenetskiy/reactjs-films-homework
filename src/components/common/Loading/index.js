@@ -5,14 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
- .container {
-   padding: 20px 0 0 0;
-   display: grid;
-   grid-template-columns: 285px 285px 285px 285px;
-   grid-template-rows: 450px 450px 450px;
-   gap: 10px;
- }
-
- .movie:nth-child(1n + 13) {
-   display: none;
- }
+export { default } from './Loading.jsx'

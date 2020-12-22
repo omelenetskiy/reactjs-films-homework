@@ -5,21 +5,21 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-import React, { useState } from 'react'
-import Navbar from '../Navbar'
-import MovieList from '../MovieList'
-import Loading from '../common/Loading'
-import responce from './responce.json'
-import styles from './Categories.scss'
+import React from 'react'
+import styles from './Loading.scss'
 
-const Categories = () => {
+const Loading = () => {
   return (
-    <div className={styles.categories}>
-      <Navbar />
-      <MovieList res={responce} />
-      <Loading />
+    <div className={styles.container}>
+      <div className={styles.lds_ellipsis}>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <span className={styles.text}>LOADING</span>
     </div>
   )
 }
 
-export default Categories
+export default Loading

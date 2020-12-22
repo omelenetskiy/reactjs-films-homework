@@ -8,11 +8,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Raiting from '../common/Raiting'
-import getGenres from '../../helpers/getGenres'
+import getGenres from '../../utils/getGenres'
 import styles from './MovieItem.scss'
 
 const MovieItem = ({ film }) => {
-  console.log(getGenres([35, 18, 10749]))
   return (
     <div className={styles.container}>
       <div

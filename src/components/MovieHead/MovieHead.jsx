@@ -14,9 +14,9 @@ import responce from './res.json'
 
 const MovieHead = () => {
   const res = responce
-  const [isInfo, setInfo] = useState(false)
+  const [isInfo, setIsInfo] = useState(false)
   const onViewInfo = () => {
-    setInfo((state) => !state)
+    setIsInfo((state) => !state)
   }
 
   return (
@@ -31,7 +31,7 @@ const MovieHead = () => {
       <div className={styles.footer}>
         <MovieHeadInfo res={res} />
         <div className={styles.footer__controls}>
-          {isInfo ? <p>{res.overview}</p> : ''}
+          {isInfo && <p>{res.overview}</p>}
           <Button styles={styles.watch_button}>Watch Now</Button>
           <Button styles={styles.info_button} onClick={onViewInfo}>
             View Info

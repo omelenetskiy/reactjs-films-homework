@@ -5,14 +5,24 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
- .container {
-   padding: 20px 0 0 0;
-   display: grid;
-   grid-template-columns: 285px 285px 285px 285px;
-   grid-template-rows: 450px 450px 450px;
-   gap: 10px;
- }
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0 20px 0;
+}
 
- .movie:nth-child(1n + 13) {
-   display: none;
- }
+.title {
+  font-size: 32px;
+  letter-spacing: 2px;
+  line-height: 64px;
+  color: #0aaee4;
+  font-weight: 800;
+}
+
+.copyright {
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 24px;
+  color: #242b2d77;
+}
