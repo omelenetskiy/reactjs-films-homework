@@ -6,17 +6,16 @@
  */
 
 import React, { useState } from 'react'
-import Button from '../common/Button'
+import { Button } from '../common/Button'
+import { Select } from '../common/Select'
 import styles from './Navbar.scss'
 import response from '../../utils/genres.json'
 
-const Navbar = () => {
+export const Navbar = () => {
   const [active, setActive] = useState(0)
-  const [selectedValue, setSelectedValue] = useState('Genre')
   const activeStyle = {
     borderBottom: `2px solid rgb(24, 183, 236)`,
   }
-
   const buttons = ['Trending', 'Top Rated', 'Coming Soon']
 
   return (
@@ -27,7 +26,7 @@ const Navbar = () => {
           return (
             <Button
               style={active === key ? activeStyle : {}}
-              styles={styles.navbar__buttons_button}
+              className={styles.navbar__buttons_button}
               onClick={() => setActive(key)}
               key={key}
             >
@@ -35,26 +34,8 @@ const Navbar = () => {
             </Button>
           )
         })}
-        <select
-          value={selectedValue}
-          onChange={(event) => setSelectedValue(event.target.value)}
-          className={styles.navbar__buttons_select}
-        >
-          <option hidden disabled>
-            Genre
-          </option>
-          {response.genres.map((genre, i) => {
-            const key = i
-            return (
-              <option value={genre.name} key={key}>
-                {genre.name}
-              </option>
-            )
-          })}
-        </select>
+        <Select genres={response.genres} />
       </div>
     </div>
   )
 }
-
-export default Navbar

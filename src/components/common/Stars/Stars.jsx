@@ -11,7 +11,7 @@ import { faStar as solidStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-
 import { faStar as regStar } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Stars = ({ res, styles }) => {
+export const Stars = ({ res, className }) => {
   const getStars = (vote) => {
     const halfVote = Math.round(vote) / 2
     const averageVote = Math.round(vote / 2)
@@ -20,19 +20,18 @@ const Stars = ({ res, styles }) => {
       .map((star, index) => {
         const key = index
         return halfVote == index + 0.5 ? (
-          <FontAwesomeIcon className={styles.description__raiting_star} icon={faStarHalfAlt} key={key} />
+          <FontAwesomeIcon className={className.description__raiting_star} icon={faStarHalfAlt} key={key} />
         ) : averageVote < index + 1 ? (
-          <FontAwesomeIcon className={styles.description__raiting_star} icon={regStar} key={key} />
+          <FontAwesomeIcon className={className.description__raiting_star} icon={regStar} key={key} />
         ) : (
-          <FontAwesomeIcon className={styles.description__raiting_star} icon={solidStar} key={key} />
+          <FontAwesomeIcon className={className.description__raiting_star} icon={solidStar} key={key} />
         )
       })
   }
-  return <div className={styles}>{getStars(res.vote_average)}</div>
+  return <div className={className}>{getStars(res.vote_average)}</div>
 }
 
 Stars.proptypes = {
   res: PropTypes.object.isRequired,
-  styles: PropTypes.string.isRequired,
+  className: PropTypes.string.isRequired,
 }
-export default Stars

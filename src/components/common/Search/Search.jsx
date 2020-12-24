@@ -3,7 +3,7 @@ import styles from './Search.scss'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Search = () => {
+export const Search = () => {
   return (
     <div className={styles.search}>
       <input className={styles.search__input} type="text" placeholder="Search" />
@@ -11,5 +11,3 @@ const Search = () => {
     </div>
   )
 }
-
-export default Search

@@ -6,13 +6,13 @@
  */
 
 import React, { useState } from 'react'
-import Search from '../common/Search'
-import MovieHeadInfo from '../MovieHeadInfo'
-import Button from '../common/Button'
-import styles from './MovieHead.scss'
+import { MovieHeadInfo } from '../MovieHeadInfo'
+import { Button } from '../common/Button'
+import { Search } from './../common/Search'
 import responce from './res.json'
+import styles from './MovieHead.scss'
 
-const MovieHead = () => {
+export const MovieHead = () => {
   const res = responce
   const [isInfo, setIsInfo] = useState(false)
   const onViewInfo = () => {
@@ -32,8 +32,8 @@ const MovieHead = () => {
         <MovieHeadInfo res={res} />
         <div className={styles.footer__controls}>
           {isInfo && <p>{res.overview}</p>}
-          <Button styles={styles.watch_button}>Watch Now</Button>
-          <Button styles={styles.info_button} onClick={onViewInfo}>
+          <Button className={styles.watch_button}>Watch Now</Button>
+          <Button className={styles.info_button} onClick={onViewInfo}>
             View Info
           </Button>
         </div>
@@ -41,5 +41,3 @@ const MovieHead = () => {
     </div>
   )
 }
-
-export default MovieHead

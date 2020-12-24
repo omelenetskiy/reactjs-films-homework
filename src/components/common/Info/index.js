@@ -5,19 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-import React from 'react'
-import { Navbar } from '../Navbar'
-import { MovieList } from '../MovieList'
-import { Loading } from '../common/Loading'
-import responce from './responce.json'
-import styles from './Categories.scss'
-
-export const Categories = () => {
-  return (
-    <div className={styles.categories}>
-      <Navbar />
-      <MovieList res={responce} />
-      <Loading />
-    </div>
-  )
-}
+export { Info } from './Info.jsx'

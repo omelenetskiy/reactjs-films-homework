@@ -5,3 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
+export { Modal } from './Modal.jsx'

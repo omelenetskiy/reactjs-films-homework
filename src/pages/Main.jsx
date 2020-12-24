@@ -1,10 +1,10 @@
 import React from 'react'
 import styles from './Main.scss'
-import MovieHead from '../components/MovieHead'
-import Categories from '../components/Categories'
-import Footer from '../components/Footer'
+import { MovieHead } from '../components/MovieHead'
+import { Categories } from '../components/Categories'
+import { Footer } from '../components/Footer'
 
-const Main = () => {
+export const Main = () => {
   return (
     <div className={styles.main_container}>
       <MovieHead />
@@ -13,5 +13,3 @@ const Main = () => {
     </div>
   )
 }
-
-export default Main

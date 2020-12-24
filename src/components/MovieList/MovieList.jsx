@@ -5,21 +5,20 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import MovieItem from '../MovieItem'
+import { MovieItem } from '../MovieItem'
 import styles from './MovieList.scss'
 
-const MovieList = ({ res }) => {
+export const MovieList = ({ res }) => {
+  const onHover = (setState) => setState(true)
+  const outHover = (setState) => setState(false)
+  const onModal = (setState) => setState((state) => !state)
   return (
     <div className={styles.container}>
       {res.results.map((film, index) => {
         const key = index
-        return (
-          <div className={styles.movie} key={key}>
-            <MovieItem film={film} />
-          </div>
-        )
+        return <MovieItem onModal={onModal} onHover={onHover} outHover={outHover} film={film} key={key} />
       })}
     </div>
   )
@@ -28,4 +27,3 @@ const MovieList = ({ res }) => {
 MovieList.propTypes = {
   res: PropTypes.object,
 }
-export default MovieList

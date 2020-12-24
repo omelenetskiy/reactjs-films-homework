@@ -1,1 +1,1 @@
-export { default } from './MovieHeadInfo.jsx'
+export { MovieHeadInfo } from './MovieHeadInfo.jsx'

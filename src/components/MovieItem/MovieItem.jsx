@@ -5,33 +5,44 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-import React from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import Raiting from '../common/Raiting'
-import getGenres from '../../utils/getGenres'
+import { Button } from '../common/Button'
+import { Info } from '../common/Info'
+import { Modal } from '../common/Modal'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import styles from './MovieItem.scss'
 
-const MovieItem = ({ film }) => {
+export const MovieItem = ({ film, onHover, outHover, onModal }) => {
+  const [isHover, setIsHover] = useState(false)
+  const [isModal, setIsModal] = useState(false)
   return (
     <div className={styles.container}>
+      {isModal && <Modal onModal={() => onModal(setIsModal)} film={film} />}
       <div
+        onMouseEnter={() => onHover(setIsHover)}
+        onMouseLeave={() => outHover(setIsHover)}
         className={styles.poster}
         style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${film.poster_path})` }}
-      ></div>
-      <div className={styles.info}>
-        <div className={styles.info__about}>
-          <div className={styles.info__about_title}>{film.title}</div>
-          <Raiting styles={styles.info__about_vote} res={film} />
-        </div>
-        <div className={styles.info__genres}>
-          <span>{getGenres(film.genre_ids)}</span>
-        </div>
+      >
+        {isHover && (
+          <div className={styles.poster__hover}>
+            <FontAwesomeIcon className={styles.poster__hover_play} icon={faPlayCircle} />
+            <span className={styles.poster__hover_text}>Watch Now</span>
+            <Button onClick={() => onModal(setIsModal)} className={styles.poster__hover_button}>
+              View Info
+            </Button>
+          </div>
+        )}
       </div>
+      <Info className={styles} film={film} />
     </div>
   )
 }
 
 MovieItem.propTypes = {
   film: PropTypes.object.isRequired,
+  onHover: PropTypes.func.isRequired,
+  outHover: PropTypes.func.isRequired,
 }
-export default MovieItem

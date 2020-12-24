@@ -7,25 +7,13 @@
 .navbar {
   &__buttons {
     &_button {
-      color: rgb(24, 183, 236);
-      background-color: rgb(240, 240, 240);
       margin: 0 20px 0 0;
       padding: 0;
       width: fit-content;
+      font-size: 20px;
       border-radius: 0;
-    }
-
-    &_select {
-      border: none;
-      font-size: 16px;
       color: rgb(24, 183, 236);
       background-color: rgb(240, 240, 240);
-      outline: none;
-
-      option:checked {
-        background-color: rgb(24, 183, 236);
-        color: #fff;
-      }
     }
   }
 }

@@ -8,7 +8,7 @@
 import React from 'react'
 import styles from './Loading.scss'
 
-const Loading = () => {
+export const Loading = () => {
   return (
     <div className={styles.container}>
       <div className={styles.lds_ellipsis}>
@@ -21,5 +21,3 @@ const Loading = () => {
     </div>
   )
 }
-
-export default Loading
