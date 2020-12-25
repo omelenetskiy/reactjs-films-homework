@@ -6,32 +6,26 @@
  */
 
 import React, { useState } from 'react'
-import { Button } from '../common/Button'
 import { Select } from '../common/Select'
+import className from 'classnames'
 import styles from './Navbar.scss'
 import response from '../../utils/genres.json'
 
 export const Navbar = () => {
   const [active, setActive] = useState(0)
-  const activeStyle = {
-    borderBottom: `2px solid rgb(24, 183, 236)`,
-  }
   const buttons = ['Trending', 'Top Rated', 'Coming Soon']
-
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar__buttons}>
         {buttons.map((button, i) => {
           const key = i
+          const classStyle = className(styles.navbar__buttons_button, {
+            [styles.active_button]: active === key,
+          })
           return (
-            <Button
-              style={active === key ? activeStyle : {}}
-              className={styles.navbar__buttons_button}
-              onClick={() => setActive(key)}
-              key={key}
-            >
+            <div className={classStyle} onClick={() => setActive(key)} key={key}>
               {button}
-            </Button>
+            </div>
           )
         })}
         <Select genres={response.genres} />

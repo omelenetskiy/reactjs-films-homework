@@ -7,12 +7,12 @@
 
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import className from 'classnames'
 import styles from './Select.scss'
 
 export const Select = ({ genres }) => {
   const [selectedValue, setSelectedValue] = useState('Genre')
   const [isSelect, setIsSelect] = useState(false)
-  const active = { backgroundColor: 'rgb(24, 183, 236)', color: '#ffffff' }
   return (
     <div className={styles.select}>
       <span onClick={() => setIsSelect((state) => !state)} className={styles.select__text}>
@@ -22,14 +22,16 @@ export const Select = ({ genres }) => {
         <div className={styles.select__list}>
           {genres.map((genre, i) => {
             const key = i
+            const classStyle = className(styles.select__item, {
+              [styles.select__item_active]: genre.name === selectedValue,
+            })
             return (
               <div
                 onClick={(event) => {
                   setIsSelect((state) => !state)
                   setSelectedValue(event.target.outerText)
                 }}
-                style={genre.name === selectedValue ? active : {}}
-                className={styles.select__item}
+                className={classStyle}
                 key={key}
               >
                 {genre.name}

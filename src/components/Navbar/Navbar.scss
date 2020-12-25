@@ -7,17 +7,18 @@
 .navbar {
   &__buttons {
     &_button {
+      display: inline-block;
       margin: 0 20px 0 0;
       padding: 0;
       width: fit-content;
       font-size: 20px;
-      border-radius: 0;
       color: rgb(24, 183, 236);
       background-color: rgb(240, 240, 240);
+      cursor: pointer;
     }
   }
 }
 
-.active {
-  border-bottom: 1px solid rgb(24, 183, 236);
+.active_button {
+  border-bottom: 2px solid rgb(24, 183, 236);
 }
