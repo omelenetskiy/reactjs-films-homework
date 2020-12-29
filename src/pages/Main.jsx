@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './Main.scss'
+import styles from './main.scss'
 import { MovieHead } from '../components/MovieHead'
 import { Categories } from '../components/Categories'
 import { Footer } from '../components/Footer'
