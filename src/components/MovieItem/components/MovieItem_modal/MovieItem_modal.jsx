@@ -7,13 +7,13 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Info } from '../Info'
-import { Button } from '../Button'
+import { Info } from '../../../common/Info'
+import { Button } from '../../../common/Button'
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styles from './Modal.scss'
+import styles from './MovieItem_modal.scss'
 
-export const Modal = ({ film, onModal }) => {
+export const MovieItem_modal = ({ film, onModal }) => {
   return (
     <div className={styles.modal}>
       <div className={styles.modal__window}>
@@ -26,6 +26,7 @@ export const Modal = ({ film, onModal }) => {
   )
 }
 
-Info.propTypes = {
+MovieItem_modal.propTypes = {
   film: PropTypes.object.isRequired,
+  onModal: PropTypes.func.isRequired,
 }

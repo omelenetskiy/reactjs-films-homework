@@ -9,7 +9,7 @@ import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Button } from '../common/Button'
 import { Info } from '../common/Info'
-import { Modal } from '../common/Modal'
+import { MovieItem_modal } from './components/MovieItem_modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import styles from './MovieItem.scss'
@@ -19,7 +19,7 @@ export const MovieItem = ({ film }) => {
   const onModal = (setState) => setState((state) => !state)
   return (
     <div className={styles.container}>
-      {isModal && <Modal onModal={() => onModal(setIsModal)} film={film} />}
+      {isModal && <MovieItem_modal onModal={() => onModal(setIsModal)} film={film} />}
       <div
         className={styles.poster}
         style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${film.poster_path})` }}

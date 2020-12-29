@@ -13,9 +13,24 @@
   color: rgb(24, 183, 236);
   background-color: rgb(240, 240, 240);
   cursor: pointer;
+  
+  &__arrow {
+    font-size: 12px;
+  }
 
   &__text {
     padding: 0 5px;
+    position: relative;
+
+    &::after {
+      content: '\1F83B';
+      position: absolute;
+      line-height: 10px;
+      font-size: 24px;
+      top: 8px;
+      right: -20px;
+      transition: transform .2s linear;
+    }
   }
 
   &__list {
@@ -40,5 +55,11 @@
       background-color: rgb(24, 183, 236);
       color: #ffffff;
     }
+  }
+}
+
+.rotateArrow {
+  &::after {
+    transform: rotate(-180deg);
   }
 }

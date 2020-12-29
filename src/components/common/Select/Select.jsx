@@ -13,9 +13,12 @@ import styles from './Select.scss'
 export const Select = ({ genres }) => {
   const [selectedValue, setSelectedValue] = useState('Genre')
   const [isSelect, setIsSelect] = useState(false)
+  const selectTextClass = className(styles.select__text, {
+    [styles.rotateArrow]: isSelect,
+  })
   return (
     <div className={styles.select}>
-      <span onClick={() => setIsSelect((state) => !state)} className={styles.select__text}>
+      <span onClick={() => setIsSelect((state) => !state)} className={selectTextClass}>
         {selectedValue}
       </span>
       {isSelect && (
