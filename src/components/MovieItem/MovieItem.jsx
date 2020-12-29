@@ -16,14 +16,11 @@ import styles from './MovieItem.scss'
 
 export const MovieItem = ({ film }) => {
   const [isModal, setIsModal] = useState(false)
-
   const onModal = (setState) => setState((state) => !state)
   return (
     <div className={styles.container}>
       {isModal && <Modal onModal={() => onModal(setIsModal)} film={film} />}
       <div
-        onMouseEnter={() => onHover(setIsHover)}
-        onMouseLeave={() => outHover(setIsHover)}
         className={styles.poster}
         style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${film.poster_path})` }}
       >
