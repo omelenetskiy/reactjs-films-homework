@@ -5,25 +5,10 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+const timeFormat = (time) => {
+  const hour = Math.floor(time / 60)
+  const min = time - hour * 60
+  return `${hour}h ${min}min`
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+export default timeFormat

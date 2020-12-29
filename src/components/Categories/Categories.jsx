@@ -6,10 +6,18 @@
  */
 
 import React from 'react'
-import { hot } from 'react-hot-loader'
-import { Main } from './pages'
-import './App.scss'
+import { Navbar } from '../Navbar'
+import { MovieList } from '../MovieList'
+import { Loading } from '../common/Loading'
+import responce from './responce.json'
+import styles from './Categories.scss'
 
-const App = () => <Main />
-
-export default hot(module)(App)
+export const Categories = () => {
+  return (
+    <div className={styles.categories}>
+      <Navbar />
+      <MovieList res={responce} />
+      <Loading>LOADING</Loading>
+    </div>
+  )
+}

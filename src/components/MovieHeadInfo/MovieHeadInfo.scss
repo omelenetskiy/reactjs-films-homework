@@ -1,0 +1,36 @@
+.description {
+  &__title {
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: #ffffff;
+    font-weight: 800;
+  }
+
+  &__genres {
+    &_name {
+      margin: 0 14px 0 0;
+      font-size: 16px;
+      letter-spacing: 1px;
+      color: #ffffff;
+      font-weight: 800;
+    }
+  }
+
+  &__raiting {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 0 0;
+
+    &_star {
+      color: rgb(24, 183, 236);
+      margin: 0 8px 0 0;
+    }
+
+    &_vote {
+      color: #fff;
+      padding: 1px 7px;
+      border: 1px solid rgb(24, 183, 236);
+      border-radius: 5px;
+    }
+  }
+}
