@@ -6,9 +6,10 @@
  */
 
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from './Loading.scss'
 
-export const Loading = () => {
+export const Loading = ({ children }) => {
   return (
     <div className={styles.container}>
       <div className={styles.lds_ellipsis}>
@@ -17,7 +18,11 @@ export const Loading = () => {
         <div></div>
         <div></div>
       </div>
-      <span className={styles.text}>LOADING</span>
+      <span className={styles.text}>{children}</span>
     </div>
   )
+}
+
+Loading.propTypes = {
+  children: PropTypes.node.isRequired,
 }

@@ -14,9 +14,10 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import styles from './MovieItem.scss'
 
-export const MovieItem = ({ film, onHover, outHover, onModal }) => {
-  const [isHover, setIsHover] = useState(false)
+export const MovieItem = ({ film }) => {
   const [isModal, setIsModal] = useState(false)
+
+  const onModal = (setState) => setState((state) => !state)
   return (
     <div className={styles.container}>
       {isModal && <Modal onModal={() => onModal(setIsModal)} film={film} />}
@@ -26,15 +27,13 @@ export const MovieItem = ({ film, onHover, outHover, onModal }) => {
         className={styles.poster}
         style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${film.poster_path})` }}
       >
-        {isHover && (
-          <div className={styles.poster__hover}>
-            <FontAwesomeIcon className={styles.poster__hover_play} icon={faPlayCircle} />
-            <span className={styles.poster__hover_text}>Watch Now</span>
-            <Button onClick={() => onModal(setIsModal)} className={styles.poster__hover_button}>
-              View Info
-            </Button>
-          </div>
-        )}
+        <div className={styles.poster__hover}>
+          <FontAwesomeIcon className={styles.poster__hover_play} icon={faPlayCircle} />
+          <span className={styles.poster__hover_text}>Watch Now</span>
+          <Button onClick={() => onModal(setIsModal)} className={styles.poster__hover_button}>
+            View Info
+          </Button>
+        </div>
       </div>
       <Info className={styles} film={film} />
     </div>
@@ -43,6 +42,4 @@ export const MovieItem = ({ film, onHover, outHover, onModal }) => {
 
 MovieItem.propTypes = {
   film: PropTypes.object.isRequired,
-  onHover: PropTypes.func.isRequired,
-  outHover: PropTypes.func.isRequired,
 }

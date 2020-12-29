@@ -2,13 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Stars } from '../common/Stars'
 import { Raiting } from '../common/Raiting'
+import timeFormat from '../../utils/timeFormat'
 import styles from './MovieHeadInfo.scss'
-
-const timeFormat = (time) => {
-  const hour = Math.floor(time / 60)
-  const min = time - hour * 60
-  return <span>{`${hour}h ${min}min`}</span>
-}
 
 export const MovieHeadInfo = ({ res }) => {
   return (

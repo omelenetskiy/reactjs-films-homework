@@ -10,14 +10,14 @@ import { Select } from '../common/Select'
 import className from 'classnames'
 import styles from './Navbar.scss'
 import response from '../../utils/genres.json'
+import { navBtns } from './../../utils/constants'
 
 export const Navbar = () => {
   const [active, setActive] = useState(0)
-  const buttons = ['Trending', 'Top Rated', 'Coming Soon']
   return (
     <div className={styles.navbar}>
       <div className={styles.navbar__buttons}>
-        {buttons.map((button, i) => {
+        {navBtns.map((button, i) => {
           const key = i
           const classStyle = className(styles.navbar__buttons_button, {
             [styles.active_button]: active === key,

@@ -2,9 +2,9 @@ import React, { Children } from 'react'
 import PropTypes from 'prop-types'
 import './Button.scss'
 
-export const Button = ({ className, onClick, children, style }) => {
+export const Button = ({ className, onClick, children }) => {
   return (
-    <button style={style} className={className} onClick={onClick}>
+    <button className={className} onClick={onClick}>
       {children}
     </button>
   )
@@ -12,7 +12,6 @@ export const Button = ({ className, onClick, children, style }) => {
 
 Button.propTypes = {
   className: PropTypes.string.isRequired,
-  style: PropTypes.object,
   onClick: PropTypes.func,
   children: PropTypes.node.isRequired,
 }

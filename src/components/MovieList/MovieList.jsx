@@ -11,14 +11,11 @@ import { MovieItem } from '../MovieItem'
 import styles from './MovieList.scss'
 
 export const MovieList = ({ res }) => {
-  const onHover = (setState) => setState(true)
-  const outHover = (setState) => setState(false)
-  const onModal = (setState) => setState((state) => !state)
   return (
     <div className={styles.container}>
       {res.results.map((film, index) => {
         const key = index
-        return <MovieItem onModal={onModal} onHover={onHover} outHover={outHover} film={film} key={key} />
+        return <MovieItem film={film} key={key} />
       })}
     </div>
   )

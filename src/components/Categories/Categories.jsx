@@ -17,7 +17,7 @@ export const Categories = () => {
     <div className={styles.categories}>
       <Navbar />
       <MovieList res={responce} />
-      <Loading />
+      <Loading>LOADING</Loading>
     </div>
   )
 }

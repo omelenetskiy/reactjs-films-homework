@@ -24,7 +24,10 @@ module.exports = merge(base, {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
+              modules: {
+                localIdentName: '[name]__[local]___[hash:base64:5]',
+              },
+              sourceMap: true,
             },
           },
           'sass-loader',
