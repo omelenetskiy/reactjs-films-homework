@@ -6,27 +6,25 @@
  */
 
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import MovieHeadInfo from '../MovieHeadInfo'
 import Button from '../common/Button'
-import responce from './res.json'
 import styles from './MovieHead.scss'
 
-const MovieHead = () => {
-  const res = responce
+const MovieHead = ({ film }) => {
   const [isInfo, setIsInfo] = useState(false)
   const onViewInfo = () => {
     setIsInfo((state) => !state)
   }
-
   return (
     <div
       className={styles.container}
-      style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original${res.poster_path}')` }}
+      style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original${film.poster_path}')` }}
     >
       <div className={styles.footer}>
-        <MovieHeadInfo res={res} />
+        <MovieHeadInfo film={film} />
         <div className={styles.footer__controls}>
-          {isInfo && <p>{res.overview}</p>}
+          {isInfo && <p>{film.overview}</p>}
           <Button className={styles.watch_button}>Watch Now</Button>
           <Button className={styles.info_button} onClick={onViewInfo}>
             View Info
@@ -37,3 +35,7 @@ const MovieHead = () => {
   )
 }
 export default MovieHead
+
+MovieHead.propTypes = {
+  film: PropTypes.object.isRequired,
+}

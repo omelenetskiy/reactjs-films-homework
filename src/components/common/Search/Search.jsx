@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { changeCategory, changeGenre } from '../../../redux/actions/changeNavbar'
 import fetchMoviesData from '../../../redux/actions/fetchMovies'
 import styles from './Search.scss'
+import { closeMovie } from '../../../redux/actions/fetchFilmData'
 
 const Search = () => {
   const [value, setValue] = useState('')
@@ -15,6 +16,7 @@ const Search = () => {
     dispatch(fetchMoviesData({ search: `/search`, query: `&query=${value}` }))
     dispatch(changeCategory())
     dispatch(changeGenre('Genre'))
+    dispatch(closeMovie())
   }
   return (
     <div className={styles.search}>

@@ -15,6 +15,7 @@ import Select from './components/Select'
 import navBtns from '../../utils/constants'
 import getQueryCategory from '../../utils/getQueryCategory'
 import styles from './Navbar.scss'
+import { closeMovie } from '../../redux/actions/fetchFilmData'
 
 const Navbar = () => {
   const { genres } = useSelector((state) => state.genres)
@@ -40,6 +41,7 @@ const Navbar = () => {
               className={classStyle}
               onClick={() => {
                 dispatch(changeCategory(key))
+                dispatch(closeMovie())
                 dispatch(
                   fetchMoviesData({
                     category: getQueryCategory(key),

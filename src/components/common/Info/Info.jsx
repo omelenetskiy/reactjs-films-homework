@@ -11,10 +11,10 @@ import { useSelector } from 'react-redux'
 import getGenres from '../../../utils/getGenres'
 import Raiting from '../Raiting'
 
-const Info = ({ film, className }) => {
+const Info = ({ film, className, onClick }) => {
   const { genres } = useSelector((state) => state.genres)
   return (
-    <div className={className.info}>
+    <div onClick={onClick} className={className.info}>
       <div className={className.info__about}>
         <div className={className.info__about_title}>{film.title}</div>
         <Raiting className={className.info__about_vote} res={film} />

@@ -28,7 +28,6 @@ const Select = ({ genres, categoryQuery, getGenreQuery }) => {
         <span className={styles.select__button_text}>{chosenGenre}</span>
         <FontAwesomeIcon className={arrowClass} icon={faChevronCircleDown} />
       </div>
-
       {isSelect && (
         <div className={styles.select__list}>
           {genres.map((genre) => {

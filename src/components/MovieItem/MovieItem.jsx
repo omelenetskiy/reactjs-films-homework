@@ -6,15 +6,18 @@
  */
 
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
 import Button from '../common/Button'
 import Info from '../common/Info'
 import MovieItemModal from './components/MovieItemModal'
+import { fetchFilmData } from '../../redux/actions/fetchFilmData'
 import styles from './MovieItem.scss'
 
 const MovieItem = ({ film }) => {
+  const dispatch = useDispatch()
   const [isModal, setIsModal] = useState(false)
   const onModal = (setState) => setState((state) => !state)
   return (
@@ -32,7 +35,7 @@ const MovieItem = ({ film }) => {
           </Button>
         </div>
       </div>
-      <Info className={styles} film={film} />
+      <Info onClick={() => dispatch(fetchFilmData(film.id))} className={styles} film={film} />
     </div>
   )
 }
