@@ -11,7 +11,8 @@ import styles from './Footer.scss'
 const Footer = () => (
   <div className={styles.container}>
     <span className={styles.title}>FILMS</span>
-    <span className={styles.copyright}>Copyright © 2020 FILMS. PAVEL DUBINA</span>
+    <span className={styles.copyright}>Copyright © 2020 FILMS.</span>
+    <span className={styles.copyright}>PAVEL DUBINA</span>
   </div>
 )
 
