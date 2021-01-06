@@ -7,19 +7,19 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useSelector } from 'react-redux'
 import getGenres from '../../../utils/getGenres'
-import { Raiting } from '../Raiting'
+import Raiting from '../Raiting'
 
-export const Info = ({ film, className }) => {
+const Info = ({ film, className }) => {
+  const { genres } = useSelector((state) => state.genres)
   return (
     <div className={className.info}>
       <div className={className.info__about}>
         <div className={className.info__about_title}>{film.title}</div>
         <Raiting className={className.info__about_vote} res={film} />
       </div>
-      <div className={className.info__genres}>
-        <span>{getGenres(film.genre_ids)}</span>
-      </div>
+      <div className={className.info__genres}>{getGenres(film.genre_ids, genres)}</div>
     </div>
   )
 }
@@ -28,3 +28,5 @@ Info.propTypes = {
   film: PropTypes.object.isRequired,
   className: PropTypes.object.isRequired,
 }
+
+export default Info

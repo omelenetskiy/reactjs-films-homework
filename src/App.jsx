@@ -7,7 +7,7 @@
 
 import React from 'react'
 import { hot } from 'react-hot-loader'
-import { Main } from './pages'
+import Main from './pages'
 import './App.scss'
 
 const App = () => <Main />

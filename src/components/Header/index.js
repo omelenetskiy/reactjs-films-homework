@@ -5,4 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export { Categories } from './Categories.jsx'
+export { default } from './Header'

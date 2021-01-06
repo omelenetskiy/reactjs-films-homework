@@ -5,4 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export { MovieItem_modal } from './MovieItem_modal.jsx'
+export { default } from './Select'

@@ -5,10 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-.categories {
-  position: relative;
-  width: 100%;
-  padding: 20px 50px;
-  background-color: rgb(240, 240, 240);
-}
-
+export { default } from './MovieItemModal'

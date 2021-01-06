@@ -12,11 +12,7 @@
   width: 100%;
   height: 100%;
   border-radius: 10px;
-  background-color: #ffffff;
-
-  &:nth-child(1n + 13) {
-    display: none;
-  }
+  background-color: #fff;
 }
 
 .poster {
@@ -26,10 +22,6 @@
   border-top-right-radius: 10px;
   background-size: 100%;
   background-color: grey;
-
-  &:hover .poster__hover{
-    display: flex;
-  }
 
   &__hover {
     display: none;
@@ -67,14 +59,18 @@
       color: #fff;
     }
   }
+
+  &:hover &__hover {
+    display: flex;
+  }
 }
 
 .info {
-  flex: 1;
+  flex: 1.2;
   cursor: pointer;
 
   &__about {
-    padding: 30px 20px 5px 20px;
+    padding: 25px 20px 10px 20px;
     display: flex;
     justify-content: space-between;
 
@@ -97,8 +93,10 @@
   }
 
   &__genres {
-    padding-left: 20px;
+    padding: 0 20px;
     color: rgb(24, 183, 236);
     font-weight: 800;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }

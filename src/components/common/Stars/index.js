@@ -5,4 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export { Stars } from './Stars.jsx'
+export { default } from './Stars'

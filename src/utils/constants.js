@@ -5,4 +5,5 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export const navBtns = ['Trending', 'Top Rated', 'Coming Soon']
+const navBtns = ['Trending', 'Top Rated', 'Coming Soon']
+export default navBtns

@@ -5,4 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export { Info } from './Info.jsx'
+export { default } from './Info'

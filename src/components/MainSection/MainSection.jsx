@@ -6,18 +6,15 @@
  */
 
 import React from 'react'
-import { Navbar } from '../Navbar'
-import { MovieList } from '../MovieList'
-import { Loading } from '../common/Loading'
-import responce from './responce.json'
-import styles from './Categories.scss'
+import Navbar from '../Navbar'
+import MovieList from '../MovieList'
+import styles from './MainSection.scss'
 
-export const Categories = () => {
-  return (
-    <div className={styles.categories}>
-      <Navbar />
-      <MovieList res={responce} />
-      <Loading>LOADING</Loading>
-    </div>
-  )
-}
+export const MainSection = () => (
+  <div className={styles.container}>
+    <Navbar />
+    <MovieList />
+  </div>
+)
+
+export default MainSection

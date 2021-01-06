@@ -5,4 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export { Raiting } from './Raiting.jsx'
+export { default } from './Raiting'

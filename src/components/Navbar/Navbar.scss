@@ -6,14 +6,16 @@
  */
 .navbar {
   &__buttons {
+    display: inline-flex;
+
     &_button {
-      display: inline-block;
       margin: 0 20px 0 0;
       padding: 0;
       width: fit-content;
       font-size: 20px;
       color: rgb(24, 183, 236);
       background-color: rgb(240, 240, 240);
+      border-bottom: 2px solid transparent;
       cursor: pointer;
     }
   }

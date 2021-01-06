@@ -1,15 +1,15 @@
 import React from 'react'
+import Header from '../components/Header'
+import MainSection from '../components/MainSection'
+import Footer from '../components/Footer'
 import styles from './main.scss'
-import { MovieHead } from '../components/MovieHead'
-import { Categories } from '../components/Categories'
-import { Footer } from '../components/Footer'
 
-export const Main = () => {
-  return (
-    <div className={styles.main_container}>
-      <MovieHead />
-      <Categories />
-      <Footer />
-    </div>
-  )
-}
+const Main = () => (
+  <div className={styles.main_container}>
+    <Header />
+    <MainSection />
+    <Footer />
+  </div>
+)
+
+export default Main

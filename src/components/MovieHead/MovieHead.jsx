@@ -6,13 +6,12 @@
  */
 
 import React, { useState } from 'react'
-import { MovieHeadInfo } from '../MovieHeadInfo'
-import { Button } from '../common/Button'
-import { Search } from './../common/Search'
+import MovieHeadInfo from '../MovieHeadInfo'
+import Button from '../common/Button'
 import responce from './res.json'
 import styles from './MovieHead.scss'
 
-export const MovieHead = () => {
+const MovieHead = () => {
   const res = responce
   const [isInfo, setIsInfo] = useState(false)
   const onViewInfo = () => {
@@ -24,10 +23,6 @@ export const MovieHead = () => {
       className={styles.container}
       style={{ backgroundImage: `url('https://image.tmdb.org/t/p/original${res.poster_path}')` }}
     >
-      <div className={styles.header}>
-        <span className={styles.header__title}>FILMS</span>
-        <Search />
-      </div>
       <div className={styles.footer}>
         <MovieHeadInfo res={res} />
         <div className={styles.footer__controls}>
@@ -41,3 +36,4 @@ export const MovieHead = () => {
     </div>
   )
 }
+export default MovieHead

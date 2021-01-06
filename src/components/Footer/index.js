@@ -5,4 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export { Footer } from './Footer.jsx'
+export { default } from './Footer'
