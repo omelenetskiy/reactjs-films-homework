@@ -6,12 +6,15 @@
  */
 
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import MovieHeadInfo from '../MovieHeadInfo'
 import Button from '../common/Button'
+import { fetchTrailerData } from '../../redux/actions/fetchTrailer'
 import styles from './MovieHead.scss'
 
 const MovieHead = ({ film }) => {
+  const dispatch = useDispatch()
   const [isInfo, setIsInfo] = useState(false)
   const onViewInfo = () => {
     setIsInfo((state) => !state)
@@ -25,7 +28,9 @@ const MovieHead = ({ film }) => {
         <MovieHeadInfo film={film} />
         <div className={styles.footer__controls}>
           {isInfo && <p>{film.overview}</p>}
-          <Button className={styles.watch_button}>Watch Now</Button>
+          <Button className={styles.watch_button} onClick={() => dispatch(fetchTrailerData(film.id))}>
+            Watch Now
+          </Button>
           <Button className={styles.info_button} onClick={onViewInfo}>
             View Info
           </Button>

@@ -9,20 +9,33 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { faTimesCircle } from '@fortawesome/free-regular-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useDispatch } from 'react-redux'
+import { fetchTrailerData } from '../../../../redux/actions/fetchTrailer'
 import Info from '../../../common/Info'
 import Button from '../../../common/Button'
 import styles from './MovieItemModal.scss'
 
-const MovieItemModal = ({ film, onModal }) => (
-  <div className={styles.modal}>
-    <div className={styles.modal__window}>
-      <FontAwesomeIcon onClick={onModal} className={styles.modal__cross} icon={faTimesCircle} />
-      <Info className={styles} film={film} />
-      <div className={styles.modal__description}>{film.overview}</div>
-      <Button className={styles.modal__button}>Watch Now</Button>
+const MovieItemModal = ({ film, onModal }) => {
+  const dispatch = useDispatch()
+  return (
+    <div className={styles.modal}>
+      <div className={styles.modal__window}>
+        <FontAwesomeIcon onClick={onModal} className={styles.modal__cross} icon={faTimesCircle} />
+        <Info className={styles} film={film} />
+        <div className={styles.modal__description}>{film.overview}</div>
+        <Button
+          onClick={() => {
+            dispatch(fetchTrailerData(film.id))
+            onModal()
+          }}
+          className={styles.modal__button}
+        >
+          Watch Now
+        </Button>
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 MovieItemModal.propTypes = {
   film: PropTypes.object.isRequired,

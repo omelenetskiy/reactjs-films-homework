@@ -14,6 +14,7 @@ import Button from '../common/Button'
 import Info from '../common/Info'
 import MovieItemModal from './components/MovieItemModal'
 import { fetchFilmData } from '../../redux/actions/fetchFilmData'
+import { fetchTrailerData } from '../../redux/actions/fetchTrailer'
 import styles from './MovieItem.scss'
 
 const MovieItem = ({ film }) => {
@@ -28,7 +29,11 @@ const MovieItem = ({ film }) => {
         style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${film.poster_path})` }}
       >
         <div className={styles.poster__hover}>
-          <FontAwesomeIcon className={styles.poster__hover_play} icon={faPlayCircle} />
+          <FontAwesomeIcon
+            onClick={() => dispatch(fetchTrailerData(film.id))}
+            className={styles.poster__hover_play}
+            icon={faPlayCircle}
+          />
           <span className={styles.poster__hover_text}>Watch Now</span>
           <Button onClick={() => onModal(setIsModal)} className={styles.poster__hover_button}>
             View Info

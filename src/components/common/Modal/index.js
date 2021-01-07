@@ -5,5 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export const navBtns = ['Trending', 'Top Rated', 'Coming Soon']
-export const API_KEY = '091df5c39d576cf7fe0bed4dc18564f5'
+export { default } from './Modal'

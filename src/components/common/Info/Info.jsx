@@ -27,6 +27,7 @@ const Info = ({ film, className, onClick }) => {
 Info.propTypes = {
   film: PropTypes.object.isRequired,
   className: PropTypes.object.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
 export default Info

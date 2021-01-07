@@ -5,28 +5,28 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-import { SEARCH_DETAILS_SUCCESS, SEARCH_DETAILS_ERROR, CLOSE_MOVIE } from './actionTypes'
+import { SEARCH_TRAILER_SUCCESS, SEARCH_TRAILER_ERROR, CLOSE_MODAL } from './actionTypes'
 import { API_KEY } from '../../utils/constants'
 
 const fetchDataSuccess = (payload) => ({
-  type: SEARCH_DETAILS_SUCCESS,
+  type: SEARCH_TRAILER_SUCCESS,
   payload,
 })
 
 const fetchDataError = (error) => ({
-  type: SEARCH_DETAILS_ERROR,
+  type: SEARCH_TRAILER_ERROR,
   payload: error,
 })
 
-export const closeMovie = () => ({
-  type: CLOSE_MOVIE,
+export const closeModal = () => ({
+  type: CLOSE_MODAL,
 })
 
-export const fetchFilmData = (id) => async (dispatch) => {
+export const fetchTrailerData = (id) => async (dispatch) => {
   try {
     const responce = await fetch(
       // eslint-disable-next-line max-len
-      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`,
+      `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`,
     )
     const film = await responce.json()
     dispatch(fetchDataSuccess(film))

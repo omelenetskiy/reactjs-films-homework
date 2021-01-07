@@ -5,6 +5,7 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 import { SEARCH_MOVIES_PENDING, SEARCH_MOVIES_SUCCESS, SEARCH_MOVIES_ERROR } from './actionTypes'
+import { API_KEY } from '../../utils/constants'
 
 const fetchData = () => ({
   type: SEARCH_MOVIES_PENDING,
@@ -25,7 +26,7 @@ const fetchMoviesData = ({ search = '', category = '', genre = '', query = '' })
     dispatch(fetchData())
     const responce = await fetch(
       // eslint-disable-next-line max-len
-      `https://api.themoviedb.org/3${search}/movie${category}?api_key=091df5c39d576cf7fe0bed4dc18564f5&language=en-US&page=1${genre}${query}`,
+      `https://api.themoviedb.org/3${search}/movie${category}?api_key=${API_KEY}&language=en-US&page=1${genre}${query}`,
     )
     const movies = await responce.json()
     dispatch(fetchDataSuccess(movies.results))
