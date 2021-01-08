@@ -5,7 +5,7 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
 import MovieHeadInfo from '../MovieHeadInfo'
@@ -15,6 +15,7 @@ import styles from './MovieHead.scss'
 
 const MovieHead = ({ film }) => {
   const dispatch = useDispatch()
+  useEffect(() => window.scrollTo(0, 64), [film])
   const [isInfo, setIsInfo] = useState(false)
   const onViewInfo = () => {
     setIsInfo((state) => !state)
