@@ -5,4 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export { MovieList } from './MovieList.jsx'
+export { default } from './MovieList'

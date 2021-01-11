@@ -6,33 +6,41 @@
  */
 
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
 import PropTypes from 'prop-types'
-import { Button } from '../common/Button'
-import { Info } from '../common/Info'
-import { MovieItem_modal } from './components/MovieItem_modal'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlayCircle } from '@fortawesome/free-solid-svg-icons'
+import Button from '../common/Button'
+import Info from '../common/Info'
+import MovieItemModal from './components/MovieItemModal'
+import { fetchFilmData } from '../../redux/actions/fetchFilmData'
+import { fetchTrailerData } from '../../redux/actions/fetchTrailer'
 import styles from './MovieItem.scss'
 
-export const MovieItem = ({ film }) => {
+const MovieItem = ({ film }) => {
+  const dispatch = useDispatch()
   const [isModal, setIsModal] = useState(false)
   const onModal = (setState) => setState((state) => !state)
   return (
     <div className={styles.container}>
-      {isModal && <MovieItem_modal onModal={() => onModal(setIsModal)} film={film} />}
+      {isModal && <MovieItemModal onModal={() => onModal(setIsModal)} film={film} />}
       <div
         className={styles.poster}
         style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${film.poster_path})` }}
       >
         <div className={styles.poster__hover}>
-          <FontAwesomeIcon className={styles.poster__hover_play} icon={faPlayCircle} />
+          <FontAwesomeIcon
+            onClick={() => dispatch(fetchTrailerData(film.id))}
+            className={styles.poster__hover_play}
+            icon={faPlayCircle}
+          />
           <span className={styles.poster__hover_text}>Watch Now</span>
           <Button onClick={() => onModal(setIsModal)} className={styles.poster__hover_button}>
             View Info
           </Button>
         </div>
       </div>
-      <Info className={styles} film={film} />
+      <Info onClick={() => dispatch(fetchFilmData(film.id))} className={styles} film={film} />
     </div>
   )
 }
@@ -40,3 +48,5 @@ export const MovieItem = ({ film }) => {
 MovieItem.propTypes = {
   film: PropTypes.object.isRequired,
 }
+
+export default MovieItem

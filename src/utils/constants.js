@@ -6,3 +6,4 @@
  */
 
 export const navBtns = ['Trending', 'Top Rated', 'Coming Soon']
+export const API_KEY = '091df5c39d576cf7fe0bed4dc18564f5'

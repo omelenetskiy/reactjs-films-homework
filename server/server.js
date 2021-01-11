@@ -16,12 +16,12 @@ const app = express()
 const port = process.env.PORT || 3000
 
 app.use(
-    require('webpack-dev-middleware')(compiler, {
-        publicPath: webpackConfig.output.publicPath,
-    })
+  require('webpack-dev-middleware')(compiler, {
+    publicPath: webpackConfig.output.publicPath,
+  }),
 )
 app.use(require('webpack-hot-middleware')(compiler))
 
-app.listen(port, function () {
-    open(`http://localhost:${port}/`)
+app.listen(port, () => {
+  open(`http://localhost:${port}/`)
 })

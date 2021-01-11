@@ -5,4 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export { Navbar } from './Navbar.jsx'
+export { default } from './Navbar'

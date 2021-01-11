@@ -8,11 +8,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const Raiting = ({ res, className }) => {
-  return <div className={className}>{res.vote_average}</div>
-}
+const Raiting = ({ res, className }) => <div className={className}>{res.vote_average}</div>
 
-Raiting.proptypes = {
+Raiting.propTypes = {
   res: PropTypes.object.isRequired,
   className: PropTypes.string.isRequired,
 }
+
+export default Raiting

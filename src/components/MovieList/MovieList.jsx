@@ -5,22 +5,29 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-import React, { useState } from 'react'
-import PropTypes from 'prop-types'
-import { MovieItem } from '../MovieItem'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import MovieItem from '../MovieItem'
+import Loading from '../common/Loading'
+import fetchMoviesData from '../../redux/actions/fetchMovies'
 import styles from './MovieList.scss'
 
-export const MovieList = ({ res }) => {
+const MovieList = () => {
+  const dispatch = useDispatch()
+  const { movies, isLoading } = useSelector((state) => state.movies)
+  useEffect(() => dispatch(fetchMoviesData({ category: '/popular' })), [])
   return (
-    <div className={styles.container}>
-      {res.results.map((film, index) => {
-        const key = index
-        return <MovieItem film={film} key={key} />
-      })}
-    </div>
+    <>
+      {movies.length === 0 && !isLoading && <div className={styles.not_found}>Movies not found</div>}
+      <div className={styles.container}>
+        {isLoading && <Loading>LOADING</Loading>}
+        {movies.map((film, index) => {
+          const key = index
+          return <MovieItem film={film} key={key} />
+        })}
+      </div>
+    </>
   )
 }
 
-MovieList.propTypes = {
-  res: PropTypes.object,
-}
+export default MovieList

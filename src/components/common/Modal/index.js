@@ -5,4 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-export { Select } from './Select.jsx'
+export { default } from './Modal'

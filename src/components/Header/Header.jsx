@@ -6,18 +6,14 @@
  */
 
 import React from 'react'
-import { Navbar } from '../Navbar'
-import { MovieList } from '../MovieList'
-import { Loading } from '../common/Loading'
-import responce from './responce.json'
-import styles from './Categories.scss'
+import Search from '../common/Search'
+import styles from './Header.scss'
 
-export const Categories = () => {
-  return (
-    <div className={styles.categories}>
-      <Navbar />
-      <MovieList res={responce} />
-      <Loading>LOADING</Loading>
-    </div>
-  )
-}
+const Header = () => (
+  <div className={styles.header}>
+    <span className={styles.header__title}>FILMS</span>
+    <Search />
+  </div>
+)
+
+export default Header
