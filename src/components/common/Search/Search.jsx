@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useHistory } from 'react-router-dom'
 import { changeCategory, changeGenre } from '../../../redux/actions/changeNavbar'
 import fetchMoviesData from '../../../redux/actions/fetchMovies'
 import styles from './Search.scss'
 import { closeMovie } from '../../../redux/actions/fetchFilmData'
 
 const Search = () => {
+  const history = useHistory()
   const [value, setValue] = useState('')
   const dispatch = useDispatch()
   const onSubmit = (event) => {
@@ -17,6 +19,7 @@ const Search = () => {
     dispatch(changeCategory())
     dispatch(changeGenre('Genre'))
     dispatch(closeMovie())
+    history.push(`/search?q=${value}`)
   }
   return (
     <div className={styles.search}>

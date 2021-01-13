@@ -16,8 +16,6 @@ const Modal = () => {
   const dispatch = useDispatch()
   const { open, trailer } = useSelector((state) => state.trailer)
   const opts = {
-    // height: '390',
-    // width: '640',
     playerVars: {
       autoplay: 1,
     },
@@ -26,7 +24,9 @@ const Modal = () => {
     open &&
     ReactDOM.createPortal(
       <div onClick={() => dispatch(closeModal())} className={styles.modal}>
-        <YouTube className={styles.frame} videoId={trailer.results[0].key} opts={opts} />
+        {(trailer.results.length && (
+          <YouTube className={styles.frame} videoId={trailer.results[0].key} opts={opts} />
+        )) || <div className={styles.not_found}>Trailer not found</div>}
       </div>,
       document.querySelector('#modal-root'),
     )

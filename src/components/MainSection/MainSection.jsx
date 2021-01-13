@@ -6,23 +6,15 @@
  */
 
 import React from 'react'
-import { useSelector } from 'react-redux'
 import Navbar from '../Navbar'
 import MovieList from '../MovieList'
-import MovieHead from '../MovieHead/MovieHead'
 import styles from './MainSection.scss'
 
-export const MainSection = () => {
-  const { open, film } = useSelector((state) => state.info)
-  return (
-    <>
-      {open && <MovieHead film={film} />}
-      <div className={styles.container}>
-        <Navbar />
-        <MovieList />
-      </div>
-    </>
-  )
-}
+export const MainSection = () => (
+  <div className={styles.container}>
+    <Navbar />
+    <MovieList />
+  </div>
+)
 
 export default MainSection

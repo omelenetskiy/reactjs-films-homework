@@ -6,12 +6,15 @@
  */
 
 import React from 'react'
+import { Link } from 'react-router-dom'
 import Search from '../common/Search'
 import styles from './Header.scss'
 
 const Header = () => (
   <div className={styles.header}>
-    <span className={styles.header__title}>FILMS</span>
+    <Link className={styles.header__title} to="/">
+      FILMS
+    </Link>
     <Search />
   </div>
 )

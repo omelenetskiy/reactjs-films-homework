@@ -7,21 +7,22 @@
 
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 import className from 'classnames'
+import { changeCategory } from '../../redux/actions/changeNavbar'
+import { navBtns } from '../../utils/constants'
 import fetchMoviesData from '../../redux/actions/fetchMovies'
 import fetchGenresData from '../../redux/actions/fetchGenres'
-import { changeCategory } from '../../redux/actions/changeNavbar'
 import Select from './components/Select'
-import { navBtns } from '../../utils/constants'
 import getQueryCategory from '../../utils/getQueryCategory'
 import styles from './Navbar.scss'
-import { closeMovie } from '../../redux/actions/fetchFilmData'
 
 const Navbar = () => {
+  const history = useHistory()
   const { genres } = useSelector((state) => state.genres)
   const { chosenCategory, chosenGenre } = useSelector((state) => state.navbar)
-  const dispatch = useDispatch()
   const [genreQuery, setGenreQuery] = useState('')
+  const dispatch = useDispatch()
   const getGenreQuery = (id) => {
     setGenreQuery(`&with_genres=${id}`)
   }
@@ -40,8 +41,8 @@ const Navbar = () => {
             <div
               className={classStyle}
               onClick={() => {
+                history.push('/')
                 dispatch(changeCategory(key))
-                dispatch(closeMovie())
                 dispatch(
                   fetchMoviesData({
                     category: getQueryCategory(key),

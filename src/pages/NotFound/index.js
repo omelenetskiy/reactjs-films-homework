@@ -5,8 +5,4 @@
  * unless prior written permission is obtained from EPAM Systems, Inc
  */
 
-.container {
-  min-height: 100%;
-  width: 100%;
-  padding: 10px 50px 20px 50px;
-}
+export { default } from './NotFound'

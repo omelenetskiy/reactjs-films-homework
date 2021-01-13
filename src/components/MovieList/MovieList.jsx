@@ -7,15 +7,26 @@
 
 import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { useParams, useLocation } from 'react-router-dom'
 import MovieItem from '../MovieItem'
 import Loading from '../common/Loading'
 import fetchMoviesData from '../../redux/actions/fetchMovies'
 import styles from './MovieList.scss'
 
 const MovieList = () => {
+  const urlParams = new URLSearchParams(useLocation().search)
+  const query = urlParams.get('q')
+  const { category = 'popular' } = useParams()
   const dispatch = useDispatch()
   const { movies, isLoading } = useSelector((state) => state.movies)
-  useEffect(() => dispatch(fetchMoviesData({ category: '/popular' })), [])
+  useEffect(() => {
+    if (query) {
+      dispatch(fetchMoviesData({ search: `/search`, query: `&query=${query}` }))
+    } else {
+      dispatch(fetchMoviesData({ category: `/${category}` }))
+    }
+  }, [query])
+
   return (
     <>
       {movies.length === 0 && !isLoading && <div className={styles.not_found}>Movies not found</div>}
