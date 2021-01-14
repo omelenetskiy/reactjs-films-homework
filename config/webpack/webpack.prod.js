@@ -9,10 +9,12 @@ const TercerWebpackPlugin = require('terser-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const base = require('./webpack.base.js')
+const path = require('path')
 
 module.exports = merge(base, {
   mode: 'production',
   output: {
+    path: path.join(__dirname, '../../build'),
     filename: '[name].[contenthash].js',
   },
   plugins: [new CleanWebpackPlugin(), new MiniCssExtractPlugin()],

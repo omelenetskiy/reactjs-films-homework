@@ -37,7 +37,7 @@
       height: 120px;
       padding: 5px 10px;
       background-color: rgba($color: #000, $alpha: 0.6);
-      overflow-y: scroll;
+      overflow-y: auto;
       animation: info-transform 0.4s linear;
     }
   }
